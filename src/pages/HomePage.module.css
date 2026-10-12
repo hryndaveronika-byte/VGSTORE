@@ -1,0 +1,107 @@
+.page {
+  background: #f9f7f3;
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  padding: 70px 80px 50px;
+}
+
+.heroText {
+  max-width: 600px;
+}
+
+.smallTitle {
+  font-size: 13px;
+  margin-bottom: 28px;
+  color: #4f4945;
+}
+
+.heroText h1 {
+  font-family: Georgia, serif;
+  font-size: 55px;
+  line-height: 1.08;
+  margin: 0 0 25px;
+  color: #211c19;
+}
+
+.heroText h1 span {
+  color: #e4a99c;
+}
+
+.description {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #6d6661;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.buttons button {
+  background: #e4a99c;
+  color: white;
+  border: none;
+  padding: 16px 28px;
+  cursor: pointer;
+}
+
+.buttons a {
+  color: #211c19;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.heroImage img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.categories {
+  padding: 20px 80px;
+}
+
+.categories h2 {
+  font-family: Georgia, serif;
+  font-size: 36px;
+  margin-bottom: 28px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.categoryCard {
+  position: relative;
+}
+
+.categoryCard img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.categoryCard div {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 14px;
+  text-align: center;
+  font-weight: 600;
+}

@@ -1,0 +1,97 @@
+.page {
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background: #f9f7f3;
+}
+
+.formBox {
+  width: 100%;
+  max-width: 430px;
+  background: #ffffff;
+  border: 1px solid #e5ddd7;
+  border-radius: 12px;
+  padding: 40px;
+}
+
+.small {
+  font-size: 12px;
+  color: #8a817b;
+  margin-bottom: 10px;
+}
+
+.formBox h1 {
+  font-family: Georgia, serif;
+  font-size: 34px;
+  color: #211c19;
+  margin: 0 0 12px;
+}
+
+.subtitle {
+  color: #746c67;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  font-size: 13px;
+  color: #3d3733;
+  margin-bottom: 8px;
+}
+
+.form input[type='email'],
+.form input[type='password'] {
+  padding: 14px;
+  border: 1px solid #ddd4ce;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.forgot {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #a7756b;
+}
+
+.loginButton {
+  border: none;
+  background: #e4a99c;
+  color: white;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.register {
+  text-align: center;
+  margin-top: 25px;
+  color: #746c67;
+  font-size: 13px;
+}
+
+.register span {
+  color: #a7756b;
+  font-weight: 600;
+}

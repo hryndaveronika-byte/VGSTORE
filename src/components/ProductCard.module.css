@@ -1,0 +1,52 @@
+.card {
+  width: 100%;
+}
+
+.imageBox {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.imageBox img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}
+
+.favorite {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: white;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 11px;
+  color: #6f6863;
+}
+
+.card h3 {
+  font-family: Georgia, serif;
+  margin: 8px 0 4px;
+  font-size: 20px;
+}
+
+.card p {
+  color: #746d67;
+  font-size: 14px;
+  margin: 0;
+}

@@ -9,9 +9,7 @@
 }
 
 .logo {
-  border: none;
-  background: transparent;
-  padding: 0;
+  text-decoration: none;
   cursor: pointer;
 
   font-family: Georgia, serif;
@@ -26,10 +24,8 @@
   gap: 36px;
 }
 
-.nav button {
-  border: none;
-  background: transparent;
-  padding: 0;
+.nav a {
+  text-decoration: none;
   cursor: pointer;
 
   color: #3d3733;
@@ -37,6 +33,6 @@
   font-size: 13px;
 }
 
-.nav button:hover {
+.nav a:hover {
   color: #e4a99c;
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Routes, Route } from 'react-router'
 
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -10,17 +10,17 @@ import CartPage from './pages/CartPage'
 import LoginPage from './pages/LoginPage'
 
 function App() {
-  const [page, setPage] = useState('home')
-
   return (
     <>
-      <Header setPage={setPage} />
+      <Header />
 
-      {page === 'home' && <HomePage />}
-      {page === 'shop' && <ShopPage />}
-      {page === 'product' && <ProductPage />}
-      {page === 'cart' && <CartPage />}
-      {page === 'login' && <LoginPage />}
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/shop" element={<ShopPage />} />
+        <Route path="/product" element={<ProductPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
 
       <Footer />
     </>

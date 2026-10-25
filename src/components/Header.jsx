@@ -1,26 +1,23 @@
+import { NavLink } from 'react-router'
 import styles from './Header.module.css'
 
-function Header({ setPage }) {
+function Header() {
   return (
     <header className={styles.header}>
-      <button className={styles.logo} onClick={() => setPage('home')}>
+      <NavLink className={styles.logo} to="/">
         VG STORE
-      </button>
+      </NavLink>
 
       <nav className={styles.nav}>
-        <button onClick={() => setPage('home')}>HOME</button>
+        <NavLink to="/">HOME</NavLink>
 
-        <button onClick={() => setPage('shop')}>SHOP</button>
+        <NavLink to="/shop">SHOP</NavLink>
 
-        <button onClick={() => setPage('shop')}>NEW IN</button>
+        <NavLink to="/product">PRODUCT</NavLink>
 
-        <button onClick={() => setPage('shop')}>BRANDS</button>
+        <NavLink to="/cart">BAG</NavLink>
 
-        <button onClick={() => setPage('product')}>PRODUCT</button>
-
-        <button onClick={() => setPage('cart')}>BAG</button>
-
-        <button onClick={() => setPage('login')}>LOGIN</button>
+        <NavLink to="/login">LOGIN</NavLink>
       </nav>
     </header>
   )

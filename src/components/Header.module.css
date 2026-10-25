@@ -1,0 +1,38 @@
+.header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 70px;
+  background-color: #f9f7f3;
+  border-bottom: 1px solid #e8e1db;
+}
+
+.logo {
+  text-decoration: none;
+  cursor: pointer;
+
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #211c19;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav a {
+  text-decoration: none;
+  cursor: pointer;
+
+  color: #3d3733;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+
+.nav a:hover {
+  color: #e4a99c;
+}

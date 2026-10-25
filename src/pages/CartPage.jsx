@@ -1,47 +1,50 @@
+import { useCart } from '../hooks/useCart'
 import styles from './CartPage.module.css'
 
 function CartPage() {
+  const { cart, removeFromCart, totalPrice } = useCart()
+
   return (
     <main className={styles.page}>
       <section className={styles.cart}>
         <h1>Your Shopping Bag</h1>
-        <p>3 items in your bag</p>
 
-        <div className={styles.item}>
-          <img src="/images/ordinary.jpg.jpg" alt="The Ordinary" />
+        <p>
+          {cart.length} {cart.length === 1 ? 'item' : 'items'} in your bag
+        </p>
 
-          <div className={styles.itemInfo}>
-            <span>THE ORDINARY</span>
-            <h3>Niacinamide 10% + Zinc 1%</h3>
-            <p>High-strength vitamin and mineral blemish formula</p>
+        {cart.length === 0 ? (
+          <div className={styles.emptyCart}>
+            <h2>Your bag is empty</h2>
+            <p>Add some beauty favorites to your shopping bag.</p>
           </div>
+        ) : (
+          cart.map((product) => (
+            <div className={styles.item} key={product.title}>
+              <img src={product.image} alt={product.title} />
 
-          <div className={styles.itemPrice}>$9.90</div>
-        </div>
+              <div className={styles.itemInfo}>
+                <span>{product.brand}</span>
 
-        <div className={styles.item}>
-          <img src="/images/rarebeauty.jpg.jpg" alt="Rare Beauty" />
+                <h3>{product.title}</h3>
 
-          <div className={styles.itemInfo}>
-            <span>RARE BEAUTY</span>
-            <h3>Soft Pinch Liquid Blush</h3>
-            <p>Weightless, long-lasting liquid blush</p>
-          </div>
+                <p>{product.description}</p>
 
-          <div className={styles.itemPrice}>$25.00</div>
-        </div>
+                <button
+                  type="button"
+                  className={styles.removeButton}
+                  onClick={() => removeFromCart(product.title)}
+                >
+                  Remove
+                </button>
+              </div>
 
-        <div className={styles.item}>
-          <img src="/images/olaplex.jpg.jpg" alt="Olaplex" />
-
-          <div className={styles.itemInfo}>
-            <span>OLAPLEX</span>
-            <h3>No.3 Hair Perfector</h3>
-            <p>Bond-building pre-shampoo treatment</p>
-          </div>
-
-          <div className={styles.itemPrice}>$30.00</div>
-        </div>
+              <div className={styles.itemPrice}>
+                ${product.price.toFixed(2)}
+              </div>
+            </div>
+          ))
+        )}
       </section>
 
       <aside className={styles.summary}>
@@ -49,7 +52,7 @@ function CartPage() {
 
         <div>
           <span>Subtotal</span>
-          <span>$64.90</span>
+          <span>${totalPrice.toFixed(2)}</span>
         </div>
 
         <div>
@@ -61,7 +64,7 @@ function CartPage() {
 
         <div className={styles.total}>
           <span>Total</span>
-          <span>$64.90</span>
+          <span>${totalPrice.toFixed(2)}</span>
         </div>
 
         <button>CHECKOUT →</button>

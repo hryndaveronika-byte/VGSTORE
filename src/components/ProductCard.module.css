@@ -50,3 +50,20 @@
   font-size: 14px;
   margin: 0;
 }
+.addButton {
+  width: 100%;
+  margin-top: 16px;
+  border: none;
+  background: #e4a99c;
+  color: #ffffff;
+  padding: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.addButton:hover {
+  background: #d8998c;
+}

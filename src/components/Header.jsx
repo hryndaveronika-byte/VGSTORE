@@ -1,7 +1,10 @@
 import { NavLink } from 'react-router'
+import { useCart } from '../hooks/useCart'
 import styles from './Header.module.css'
 
 function Header() {
+  const { cart } = useCart()
+
   return (
     <header className={styles.header}>
       <NavLink className={styles.logo} to="/">
@@ -15,7 +18,10 @@ function Header() {
 
         <NavLink to="/product">PRODUCT</NavLink>
 
-        <NavLink to="/cart">BAG</NavLink>
+        <NavLink to="/cart" className={styles.bagLink}>
+          BAG
+          <span className={styles.cartCount}>{cart.length}</span>
+        </NavLink>
 
         <NavLink to="/login">LOGIN</NavLink>
       </nav>

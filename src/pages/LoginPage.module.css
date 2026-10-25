@@ -46,7 +46,7 @@
   margin-bottom: 8px;
 }
 
-.form input[type='email'],
+.form input[type='text'],
 .form input[type='password'] {
   padding: 14px;
   border: 1px solid #ddd4ce;

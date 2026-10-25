@@ -1,6 +1,18 @@
+import { useState } from 'react'
+import { useAuth } from '../hooks/useAuth'
 import styles from './LoginPage.module.css'
 
 function LoginPage() {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
+  const { login, user, loading, error } = useAuth()
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    await login(username, password)
+  }
+
   return (
     <main className={styles.page}>
       <div className={styles.formBox}>
@@ -12,12 +24,22 @@ function LoginPage() {
           Enter your details to continue shopping.
         </p>
 
-        <form className={styles.form}>
-          <label>Email</label>
-          <input type="email" placeholder="Enter your email" />
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label>Username</label>
+          <input
+            type="text"
+            placeholder="Enter your username"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
 
           <label>Password</label>
-          <input type="password" placeholder="Enter your password" />
+          <input
+            type="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
 
           <div className={styles.options}>
             <label className={styles.remember}>
@@ -30,9 +52,17 @@ function LoginPage() {
             </button>
           </div>
 
-          <button type="button" className={styles.loginButton}>
-            SIGN IN →
+          <button
+            type="submit"
+            className={styles.loginButton}
+            disabled={loading}
+          >
+            {loading ? 'SIGNING IN...' : 'SIGN IN →'}
           </button>
+
+          {error && <p>{error}</p>}
+
+          {user && <p>Welcome, {user.firstName}!</p>}
         </form>
 
         <p className={styles.register}>

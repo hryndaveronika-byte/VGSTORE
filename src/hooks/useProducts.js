@@ -6,28 +6,35 @@ export function useProducts() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    fetch('https://dummyjson.com/products/category/beauty')
-      .then((response) => {
+    const controller = new AbortController()
+
+    async function loadProducts() {
+      try {
+        const response = await fetch('/api/products', {
+          signal: controller.signal,
+        })
+
         if (!response.ok) {
-          throw new Error('Помилка завантаження товарів')
+          throw new Error('Не вдалося завантажити товари')
         }
 
-        return response.json()
-      })
-      .then((data) => {
+        const data = await response.json()
         setProducts(data.products)
-      })
-      .catch((error) => {
-        setError(error.message)
-      })
-      .finally(() => {
-        setLoading(false)
-      })
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          setError(error.message)
+        }
+      } finally {
+        if (!controller.signal.aborted) {
+          setLoading(false)
+        }
+      }
+    }
+
+    loadProducts()
+
+    return () => controller.abort()
   }, [])
 
-  return {
-    products,
-    loading,
-    error,
-  }
+  return { products, loading, error }
 }

@@ -6,11 +6,16 @@ function LoginPage() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const { login, user, loading, error } = useAuth()
+  const { user, login, logout, loading, error } = useAuth()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    await login(username, password)
+
+    const result = await login(username, password)
+
+    if (result) {
+      setPassword('')
+    }
   }
 
   return (
@@ -24,50 +29,62 @@ function LoginPage() {
           Enter your details to continue shopping.
         </p>
 
-        <form className={styles.form} onSubmit={handleSubmit}>
-          <label>Username</label>
-          <input
-            type="text"
-            placeholder="Enter your username"
-            value={username}
-            onChange={(event) => setUsername(event.target.value)}
-          />
+        {loading && <p role="status">Please wait...</p>}
 
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(event) => setPassword(event.target.value)}
-          />
+        {error && <p role="alert">{error}</p>}
 
-          <div className={styles.options}>
-            <label className={styles.remember}>
-              <input type="checkbox" />
-              Remember me
-            </label>
+        {user ? (
+          <div>
+            <p role="status">Welcome, {user.firstName || user.username}!</p>
 
-            <button type="button" className={styles.forgot}>
-              Forgot password?
+            <button
+              type="button"
+              className={styles.loginButton}
+              onClick={logout}
+              disabled={loading}
+            >
+              SIGN OUT →
             </button>
           </div>
+        ) : (
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <label htmlFor="username">Username</label>
 
-          <button
-            type="submit"
-            className={styles.loginButton}
-            disabled={loading}
-          >
-            {loading ? 'SIGNING IN...' : 'SIGN IN →'}
-          </button>
+            <input
+              id="username"
+              type="text"
+              autoComplete="username"
+              placeholder="Enter your username"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+              maxLength={32}
+              required
+              disabled={loading}
+            />
 
-          {error && <p>{error}</p>}
+            <label htmlFor="password">Password</label>
 
-          {user && <p>Welcome, {user.firstName}!</p>}
-        </form>
+            <input
+              id="password"
+              type="password"
+              autoComplete="current-password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              maxLength={128}
+              required
+              disabled={loading}
+            />
 
-        <p className={styles.register}>
-          Don't have an account? <span>Create account</span>
-        </p>
+            <button
+              type="submit"
+              className={styles.loginButton}
+              disabled={loading}
+            >
+              {loading ? 'PLEASE WAIT...' : 'SIGN IN →'}
+            </button>
+          </form>
+        )}
       </div>
     </main>
   )

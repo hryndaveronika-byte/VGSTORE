@@ -1,0 +1,80 @@
+.page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  padding: 60px 80px;
+  background: #f9f7f3;
+}
+
+.mainImage {
+  background: white;
+  border-radius: 14px;
+  padding: 40px;
+}
+
+.mainImage img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain;
+}
+
+.brand {
+  font-size: 12px;
+  color: #69625d;
+}
+
+.info h1 {
+  font-family: Georgia, serif;
+  font-size: 42px;
+  margin: 12px 0;
+}
+
+.rating {
+  color: #d99b8e;
+  font-size: 14px;
+}
+
+.description {
+  color: #6b6560;
+  line-height: 1.7;
+  margin: 30px 0;
+}
+
+.price {
+  font-family: Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.actions {
+  display: flex;
+  gap: 18px;
+}
+
+.quantity {
+  display: flex;
+  border: 1px solid #ddd3cd;
+}
+
+.quantity button,
+.quantity span {
+  padding: 14px 18px;
+  border: none;
+  background: transparent;
+}
+
+.addButton {
+  flex: 1;
+  background: #e4a99c;
+  color: white;
+  border: none;
+}
+
+.extra {
+  margin: 20px 0;
+}
+
+.services {
+  color: #6e6863;
+}

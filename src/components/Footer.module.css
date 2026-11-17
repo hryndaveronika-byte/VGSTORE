@@ -1,0 +1,16 @@
+.footer {
+  background: #e4aa9c;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.footer h2 {
+  font-family: Georgia, serif;
+  font-size: 34px;
+  margin: 0 0 8px;
+}
+
+.footer p {
+  font-size: 11px;
+  color: #5f554f;
+}

@@ -1,0 +1,25 @@
+.shop {
+  background: #f9f7f3;
+  padding: 55px 70px 80px;
+}
+
+.shop h1 {
+  font-family: Georgia, serif;
+  font-size: 48px;
+  margin: 0 0 16px;
+}
+
+.shop h1 span {
+  color: #e4a99c;
+}
+
+.subtitle {
+  color: #766f69;
+  margin-bottom: 55px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 24px;
+}
